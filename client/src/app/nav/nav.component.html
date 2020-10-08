@@ -13,23 +13,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-iteml">
           <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Messages</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="loggedIn">
           <a class="nav-link" href="#" tabindex="-1" (click)="logout()"
             >Logout</a
           >
         </li>
       </ul>
-      <div class="dropdown" *ngIf="loggedIn">
-        <a href="#" class="dropdown-toggle text-light">Welcome user</a>
-        <div class="dropdown-menu">
+      <div class="dropdown" *ngIf="loggedIn" dropdown>
+        <a href="#" class="dropdown-toggle text-light" dropdownToggle
+          >Welcome user</a
+        >
+        <div class="dropdown-menu" *dropdownMenu>
           <a href="#" class="dropdown-item"> Edit Profile </a>
+          <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item" (click)="logout()"> Logout </a>
         </div>
       </div>
